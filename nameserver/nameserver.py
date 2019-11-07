@@ -1,6 +1,7 @@
 from flask import Flask, request, redirect, url_for
 from files_operations import files_operations
 from directories_operations import dir_operations
+from Manager import Manager
 
 app = Flask(__name__)
 
@@ -26,4 +27,5 @@ def init():
         return redirect(url_for('index'))
 
 
+m = Manager()
 app.run()
