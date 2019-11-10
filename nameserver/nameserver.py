@@ -1,7 +1,10 @@
+from sqlite3 import connect, Error
+from os import path
 from flask import Flask, request, redirect, url_for
 from files_operations import files_operations
 from directories_operations import dir_operations
-from Manager import Manager
+from Database import Manager
+
 
 app = Flask(__name__)
 
@@ -27,5 +30,10 @@ def init():
         return redirect(url_for('index'))
 
 
-m = Manager()
+@app.route('/get_hirerachy')
+def get_hirerachy():
+    pass
+
+
+manager = Manager()
 app.run()
