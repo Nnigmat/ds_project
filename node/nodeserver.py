@@ -36,3 +36,6 @@ def sync():
 @app.route('')
 def drop():
     pass
+
+
+app.run()
