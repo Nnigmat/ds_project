@@ -1,9 +1,8 @@
 from sqlite3 import connect, Error
 from os import path
-from flask import Flask, request, redirect, url_for
+from flask import Flask, request, redirect, url_for, render_template
 from files_operations import files_operations
 from directories_operations import dir_operations
-from Database import Manager
 
 
 app = Flask(__name__)
@@ -16,12 +15,7 @@ app.register_blueprint(dir_operations)
 @app.route('/')
 @app.route('/index')
 def index():
-    return '''
-        hello
-        <form method="post" action="/init">
-            <input type="submit" value="init">
-        </form>
-    '''
+    return render_template('index.html')
 
 
 @app.route('/init', methods=['POST'])
@@ -35,5 +29,4 @@ def get_hirerachy():
     pass
 
 
-manager = Manager()
 app.run()
